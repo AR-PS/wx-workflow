@@ -8,9 +8,9 @@
 	url = https://github.com/RRFSx/MPAS-Model
         branch = gsl/develop
         ignore = all
-[submodule "sorc/RDASApp"]
-	path = sorc/RDASApp
-	url = https://github.com/NOAA-EMC/RDASApp
+[submodule "sorc/ADASApp"]
+	path = sorc/ADASApp
+	url = https://github.com/AR-PS/ADASApp
         branch = develop
         ignore = all
 [submodule "sorc/UPP"]
