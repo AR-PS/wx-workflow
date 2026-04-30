@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+# Aloha! This file is to setup some top level experiment options
+#
+# shellcheck disable=all
+export NET=arps                    # rrfs, rtma, 
+export MESH_NAME=global12km     # conus12km, conus3km, na12km, etc
+export WGF="det"   # working group function = "det", "enkf", "ens", "firewx"
+export EXP_NAME=g12km
+export VERSION=$(cat ./VERSION)
+export TAG=g12km
+export OPSROOT=/gpfs/f6/arfs-gsl/world-shared/gge/rrfs2/regressionTests/${EXP_NAME}
+export EXPDIR=${OPSROOT}/exp/${NET}${WGF}
+export COMROOT=${OPSROOT}/com      # task input and output data as well as logs
+export DATAROOT=${OPSROOT}/stmp    # task workdirs ($DATA) which to be removed immediately upon task completion unless KEEPDATA=YES
+#
+export ZETA_LEVELS="L112.txt"
+export PHYSICS_SUITE="mpas_global"
+export DO_CLEAN=true
+#
+for i in {0..23};    do arr[$i]="120"; done # filling the array, no impact at all
+for i in {0..23..12}; do arr[$i]="120"; done # 120hr fcst every 12hrs
+export FCST_LEN_HRS_CYCLES="${arr[*]}"
+export HISTORY_INTERVAL=3
+export DIAG_INTERVAL=3
+export MPASOUT_INTERVAL=none
+export MPASOUT_TIMELEVELS=""
+export POST_GROUP_TOT_NUM=4 # num of groups, the final group absorbs leftovers, the first group contains the extra f000h file
+
+export IC_OFFSET=6
+#
+export RETRO_PERIOD="2024050600-2024050700"
+export COLDSTART_CYCS="00 12"   # cycles to cold start from external models
+export KEEPDATA=YES
+#
+export IC_EXTRN_MDL_NAME="GFS"
+export IC_EXTRN_MDL_FILENAME_PATTERN="gfs.@Y@m@d/@H/gfs.t@Hz.pgrb2.0p25.f^HHH^"
+export IC_EXTRN_MDL_FILENAME_PATTERN_B="gfs.@Y@m@d/@H/gfs.t@Hz.pgrb2b.0p25.f^HHH^"
+export IC_EXTRN_MDL_BASEDIR="/gpfs/f6/bil-fire10-oar/world-shared/RRFS2_RETRO_DATA/May2024/GFS"
+#
+export ACCOUNT="arfs-gsl"
+export QUEUE="normal"
+export PARTITION="batch"
+export CLUSTER="c6"
+export NODES_IC="<nodes>10:ppn=160</nodes>"
+export NODES_FCST="<nodes>20:ppn=160</nodes>"
+export NODES_MPASSIT="<nodes>12:ppn=20</nodes>"
+export NODES_UPP="<nodes>5:ppn=80</nodes>"
+export WALLTIME_FCST="6:00:00"
+export WALLTIME_MPASSIT="3:00:00"
+export WALLTIME_UPP="2:00:00"
