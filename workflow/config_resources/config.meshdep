@@ -149,9 +149,9 @@ elif [[ ${MESH_NAME} == "ea5km" ]]; then
   export GSIBEC_LAT_END=17.645700
 
 elif [[ ${MESH_NAME} == "global12km" ]]; then
-  export FCST_DT=60
-  export FCST_SUBSTEPS=2
-  export FCST_RADT=30
+  export FCST_DT=50
+  export FCST_SUBSTEPS=6
+  export FCST_RADT=25
   export FCST_GFL_SUB3D=0
   export UPP_DOMAIN="conus."
 
