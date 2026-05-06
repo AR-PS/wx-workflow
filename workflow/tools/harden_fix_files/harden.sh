@@ -8,7 +8,7 @@ cmd="rm -rf"  # remove excluded files/directories
 
 "${run_dir}"/../init.sh
 
-echo "First, remove the fix files/directories not needed by NCO (i.e. those listed in NCOnize_fix_files/exclude.txt) ......"
+echo "First, remove the fix files/directories not needed by the target (i.e. those listed in harden_fix_files/exclude.txt) ......"
 section_start=false
 knt=0
 while IFS= read -r line || [[ -n "${line}" ]]; do
@@ -38,11 +38,10 @@ echo "Second, harden all links under the fix/ directory ......"
 cd "${fix_dir}/.." || exit 1
 set -x
 pwd
-rsync -aL --exclude ".agent" fix/ fix_NCO/
-mv fix fix_old
-mv fix_NCO fix
+rm -rf fix_harden
+rsync -aL --exclude ".agent" fix/ fix_harden/
 set +x
 
 echo "Done!"
-echo "Now the fix/ directory contains no links, and only files needed by NCO."
-echo "The old fix/ directory is saved as fix_old/ for reference."
+echo "The fix_harden/ directory contains no links, and only regular files needed by the target."
+echo -e "For a delivery to NCO, one may run\n    mv fix fix_old\n    mv fix_harden fix\nto prepare the final fix/ directory"
