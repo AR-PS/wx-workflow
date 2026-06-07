@@ -58,6 +58,7 @@ def prep_lbc(xmlFile, expdir, do_ensemble=False):
         taskdep = taskdep + f'\n     <metataskdep metatask="lbc{ensindexstr}" cycle_offset="-{hr}:00:00" />'
     if os.getenv('DO_RTMA', 'FALSE').upper() == 'TRUE':
         taskdep = f'\n     <taskdep task="prep_ic"/>'
+        dcTaskEnv['DO_RTMA'] = 'TRUE'
 
     dependencies = ""
     if os.getenv('DO_IC_LBC', 'TRUE').upper() == "TRUE" or os.getenv('DO_RTMA', 'FALSE').upper() == 'TRUE':

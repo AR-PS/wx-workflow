@@ -82,6 +82,8 @@ def fcst(xmlFile, expdir, do_ensemble=False, dcEnsGrpInfo=None, do_spinup=False)
         ensindexstr = "_m#ens_index#"
 
     dcTaskEnv['KEEPDATA'] = get_cascade_env(f"KEEPDATA_{task_id}".upper()).upper()
+    if os.getenv('DO_RTMA', 'FALSE').upper() == "TRUE":
+        dcTaskEnv['DO_RTMA'] = 'TRUE'
     # dependencies
     timedep = ""
     realtime = os.getenv("REALTIME", "false")

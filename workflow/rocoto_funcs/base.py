@@ -108,6 +108,11 @@ def header_entities(xmlFile, expdir):
             text = text + f'<!ENTITY RESERVATION     "--reservation={reservation}">\n'
     else:
         text = ''
+    # ~~~~~
+    if os.getenv('DO_RTMA', 'FALSE').upper() == "TRUE":
+        COMINrrfs = os.getenv('COMINrrfs', 'COMINrrfs_not_defined')
+    else:
+        COMINrrfs = f'&COMROOT;/{net}/{rrfs_ver}'
     #
     text = text + f'''
 <!ENTITY MACHINE         "{MACHINE}">
@@ -129,7 +134,7 @@ def header_entities(xmlFile, expdir):
 <envar><name>EXPDIR</name><value>&EXPDIR;</value></envar>
 <envar><name>COMROOT</name><value>&COMROOT;</value></envar>
 <envar><name>DATAROOT</name><value><cyclestr>&DATAROOT;/@Y@m@d</cyclestr></value></envar>
-<envar><name>COMINrrfs</name><value>&COMROOT;/{net}/{rrfs_ver}</value></envar>
+<envar><name>COMINrrfs</name><value>{COMINrrfs}</value></envar>
 <envar><name>COMOUT</name><value><cyclestr>&COMROOT;/{net}/{rrfs_ver}/{run}.@Y@m@d/@H</cyclestr></value></envar>
 <envar><name>CDATE</name><value><cyclestr>@Y@m@d@H</cyclestr></value></envar>
 <envar><name>PDY</name><value><cyclestr>@Y@m@d</cyclestr></value></envar>
