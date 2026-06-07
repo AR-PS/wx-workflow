@@ -14,6 +14,9 @@ fcst_len_hrs_cycles=${FCST_LEN_HRS_CYCLES:-"01 01"}
 fcst_len_hrs_thiscyc=$( "${USHrrfs}/find_fcst_length.sh"  "${fcst_len_hrs_cycles}" "${cyc}" )
 echo "forecast length for this cycle is ${fcst_len_hrs_thiscyc}"
 lbc_hrs=$(( 10#${PREP_LBC_LOOK_BACK_HRS} ))
+if [[ "${DO_RTMA^^}" == "TRUE" ]]; then
+  RUN=rrfs  # rtma needs to get data from rrfs.${PDY}
+fi
 #
 # find cycle that has boundary files
 #

@@ -83,6 +83,9 @@ for index in "${mem_list[@]}"; do # loop through all the members
       PDYii=${CDATEp:0:8}
       cycii=${CDATEp:8:2}
       thisfile=${COMINrrfs}/${RUN}.${PDYii}/${cycii}/${fcststr}/${WGF}${memdir}/mpasout.${timestr}.nc
+      if [[ "${DO_RTMA^^}" == "TRUE" ]]; then
+        thisfile=${COMINrrfs}/rrfs.${PDYii}/${cycii}/${fcststr}/${WGF}${memdir}/mpasout.${timestr}.nc
+      fi
       if [[ -s ${thisfile} ]]; then
         break
       fi
