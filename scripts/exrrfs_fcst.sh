@@ -142,7 +142,7 @@ if [[ "${DO_RTMA^^}" == "TRUE" ]]; then
     -e "s/@lbc_interval@/1/" -e "s/@mpasout_interval@/none/"  \
       "${PARMrrfs}"/streams.atmosphere  > streams.atmosphere
   timestr0=$(date -d "${CDATE:0:8} ${CDATE:8:2}" +%Y-%m-%d_%H.%M.%S)
-  timestr2=$(date -d "${CDATE:0:8} ${CDATE:8:2} +${FCST_DT} seconds" +%Y-%m-%d_%H.%M.%S)
+  timestr2=$(date -d "${CDATE:0:8} ${CDATE:8:2} +${FCST_DT} seconds" +%Y-%m-%d_%H.%M.%S) # rrfslint: disable=RRFS005
   rm -rf "${DATA}/history.${timestr0}.nc" "${DATA}/history.${timestr0}.nc.done" \
     "${DATA}/diag.${timestr0}.nc" "${DATA}/diag.${timestr0}.nc.done" \
     "${DATA}/mpasout.${timestr0}.nc.done"  # remove unintended links created before DO_RTMA
