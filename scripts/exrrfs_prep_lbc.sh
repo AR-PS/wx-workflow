@@ -16,6 +16,8 @@ echo "forecast length for this cycle is ${fcst_len_hrs_thiscyc}"
 lbc_hrs=$(( 10#${PREP_LBC_LOOK_BACK_HRS} ))
 if [[ "${DO_RTMA^^}" == "TRUE" ]]; then
   RUN=rrfs  # rtma needs to get data from rrfs.${PDY}
+  fcst_len_hrs_thiscyc=1  # rtma only need one hour lbc
+  lbc_interval=1
 fi
 #
 # find cycle that has boundary files
