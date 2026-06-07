@@ -16,7 +16,7 @@ export DATAROOT=${OPSROOT}/stmp    # task workdirs ($DATA) which to be removed i
 export ZETA_LEVELS="L60.txt"
 #
 export DO_RTMA=true
-export RTMA_RRFSPATH="/home/role.rtrr/rrfsv2x"  # the RRFS location: rrfs.$PDY/$cyc/(fcst,lbc)/det/mpasout*.nc 
+export COMINrrfs="/home/role.rtrr/rrfsv2x"  # the RRFS location of rrfs.$PDY/$cyc/(fcst,lbc)/det/mpasout*.nc
 export DO_NONVAR_CLOUD_ANA=false
 export DO_CLEAN=true
 export HYB_WGT_ENS=0.0
@@ -31,13 +31,23 @@ export ENS_BEC_LOOK_BACK_HRS=1  # define the hours going back for ensemble forec
 export STATIC_BEC_MODEL="GSIBEC" # the static bec model, GSIBEC and BUMPBEC
 export GSIBEC_X=40 #GSIBEC_X * GSIBEC_Y should match the number of MPI tasks
 export GSIBEC_Y=20
-
+#
 export RETRO_PERIOD="2024052700-2024052800"
+export DO_PYDAMONITOR=true
+export DO_GRAPHICS=true
+export GRAPHICS_TILES="full NE NC NW SE SC SW EastCO"
+export DO_ARCHIVE=true
+export ARCHIVE_INTERVAL=12  # run the archive task every several hours
+export ARCHIVE_HPSSDIR="/5year/BMC/wrfruc/Guoqing.Ge/${EXP_NAME}"
+export ARCHIVE_COM1_SPEC='{"include":"ioda*, jedivar, nonvar*, fcst, upp, pyDAmonitor, graphics", "exclude":""}'  # use " inside and ' outside
+export ARCHIVE_STMP=''  # eg. 'fcst,mpassit'  # archive files under the given task umbrella directories
+export ARCHIVE_STMP_INTERVAL='12'  # ARCHIVE_STMP_INTERVAL must divide ARCHIVE_INTERVAL evenly
 #
 export NODES_FCST="<nodes>40:ppn=40</nodes>"
 export NODES_MPASSIT="<nodes>4:ppn=20</nodes>"
 export NODES_UPP="<nodes>4:ppn=20</nodes>"
 export NODES_JEDIVAR="<nodes>80:ppn=10</nodes>"
+export NODES_IODA_MRMS_REFL="<nodes>1:ppn=40</nodes>"
 #
 export WALLTIME_FCST="0:30:00"
 export WALLTIME_MPASSIT="2:00:00"
