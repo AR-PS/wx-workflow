@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# Aloha! This file is to setup some top level experiment options
+#
+# shellcheck disable=all
+export NET=rrfs                    # rrfs, rtma,
+export MESH_NAME=na12km         # conus12km, conus3km, na12km, etc
+export WGF="det"   # working group function = "det", "enkf", "ens", "firewx"
+export EXP_NAME=ioda
+export VERSION=$(cat ./VERSION)
+export TAG=d12km
+export OPSROOT=/scratch3/BMC/wrfruc/gge/rrfs2/regressionTests/${EXP_NAME}
+export EXPDIR=${OPSROOT}/exp/rrfs${WGF}
+export COMROOT=${OPSROOT}/com      # task input and output data as well as logs
+export DATAROOT=${OPSROOT}/stmp    # task workdirs ($DATA) which to be removed immediately upon task completion unless KEEPDATA=YES
+export KEEPDATA=YES
+export CYCLETHROTTLE=30000
+export TASKTHROTTLE=30000
+#
+#
+export DO_IODA=true
+export DO_IC_LBC=false
+export DO_FCST=false
+export DO_POST=false
+export DO_CYC=true
+export CYC_INTERVAL=1
+#
+export CYCLEDEF_PROD="202405060000 202405062300 01:00:00"
+export CYCLEDEF_IC=${CYCLEDEF_PROD}
+export CYCLEDEF_LBC=${CYCLEDEF_PROD}
+#
+export OBSPATH="/scratch4/BMC/rtrr/RRFS2_RETRO_DATA/May2024/obs_rap"
+export ACCOUNT="wrfruc"
+export QUEUE="batch"
+export PARTITION="u1-compute"
