@@ -31,4 +31,5 @@ export CYCLEDEF_LBC=${CYCLEDEF_PROD}
 export OBSPATH="/scratch4/BMC/rtrr/RRFS2_RETRO_DATA/May2024/obs_rap"
 export ACCOUNT="wrfruc"
 export QUEUE="batch"
-export PARTITION="u1-compute"
+#export PARTITION="u1-compute"  # for ursa
+export PARTITION="hera"  # for hera
