@@ -59,8 +59,8 @@
     config_convection_scheme = 'cu_grell_freitas_li'
     config_gfl_sub3d = ${config_gfl_sub3d}
     config_gwdo_scheme = 'bl_ugwp_gwdo'
-    config_lsm_scheme    = 'sf_noah'
-    num_soil_layers      = 4
+    config_lsm_scheme    = '${lsm_scheme}'
+    num_soil_layers      = ${nsoillevels}
     config_pbl_scheme = 'bl_mynnedmf'
     config_mynn_mixscalars = 0
     config_mynn_mixaerosols = 1
