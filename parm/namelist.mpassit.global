@@ -1,0 +1,15 @@
+&config
+    grid_file_input_grid = "invariant.nc"
+    hist_file_input_grid = "history.@timestr@.nc"
+    diag_file_input_grid = "diag.@timestr@.nc"
+    output_file          = "mpassit.@timestr@.nc"
+    target_grid_type     = 'lat-lon'
+    interp_diag          = .true.
+    interp_hist          = .true.
+    wrf_mod_vars         = .true.
+    esmf_log             = .false.
+    is_regional          = .false.
+    nx = @nx@
+    ny = @ny@
+    stand_lon = @ref_lon@
+/
