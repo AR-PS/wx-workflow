@@ -10,7 +10,7 @@
         ignore = all
 [submodule "sorc/RDASApp"]
 	path = sorc/RDASApp
-	url = https://github.com/AR-PS/ADASApp
+	url = https://github.com/wx-workflow/ADASApp
         branch = develop
         ignore = all
 [submodule "sorc/UPP"]
