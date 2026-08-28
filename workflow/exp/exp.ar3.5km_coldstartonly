@@ -9,11 +9,11 @@ export EXP_NAME=ar20250209
 export VERSION=$(cat ./VERSION)
 export TAG=d3.5km
 export OPSROOT=/gpfs/f6/arfs-gsl/world-shared/gge/rrfs2/PEAR/${EXP_NAME}
-export EXPDIR=${OPSROOT}/exp/rrfs${WGF}
+export EXPDIR=${OPSROOT}/exp/${NET}${WGF}
 export COMROOT=${OPSROOT}/com      # task input and output data as well as logs
 export DATAROOT=${OPSROOT}/stmp    # task workdirs ($DATA) which to be removed immediately upon task completion unless KEEPDATA=YES
 #
-export ZETA_LEVELS="L60a.txt"
+export ZETA_LEVELS="L60.txt"
 #
 for i in {0..23};    do arr[$i]="03"; done
 for i in {0..23..12}; do arr[$i]="120"; done # 120hr fcst at 00, 12z
@@ -31,6 +31,7 @@ export LBC_UNGRIB_GROUP_TOTAL_NUM=4
 export LBC_GROUP_TOTAL_NUM=4
 #
 export CYCLEDEF_PROD="0 00,12 09,11,13 02 2025 *"
+#export CYCLEDEF_PROD="202405060000 202405070000 01:00:00"
 export CYCLEDEF_LBC=" ${CYCLEDEF_PROD}"
 export CYCLEDEF_IC="  ${CYCLEDEF_PROD}"
 export LBC_CYCS="00 12"  # evenly divide 24 hours, e.g., "00 12", "00 06 12 18", etc

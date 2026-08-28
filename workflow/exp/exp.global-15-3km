@@ -9,7 +9,7 @@ export EXP_NAME=g15-3km
 export VERSION=$(cat ./VERSION)
 export TAG=g15-3km
 export OPSROOT=/gpfs/f6/arfs-gsl/world-shared/gge/rrfs2/regressionTests/${EXP_NAME}
-export EXPDIR=${OPSROOT}/exp/rrfs${WGF}
+export EXPDIR=${OPSROOT}/exp/${NET}${WGF}
 export COMROOT=${OPSROOT}/com      # task input and output data as well as logs
 export DATAROOT=${OPSROOT}/stmp    # task workdirs ($DATA) which to be removed immediately upon task completion unless KEEPDATA=YES
 #
