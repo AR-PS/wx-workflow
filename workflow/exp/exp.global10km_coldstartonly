@@ -24,6 +24,7 @@ export HISTORY_INTERVAL=6
 export DIAG_INTERVAL=6
 export MPASOUT_INTERVAL=none
 export POST_GROUP_TOT_NUM=5 # num of groups, the final group absorbs leftovers, the first group contains the extra f000h file
+export MPASSIT_NAMELIST="namelist.mpassit.global"
 
 export IC_OFFSET=6
 #export LSM_SCHEME='sf_noah'  # sf_ruc, sf_noah, sf_noahmp

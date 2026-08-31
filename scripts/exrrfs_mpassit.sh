@@ -28,6 +28,7 @@ ny=${MPASSIT_NY:-280}
 dx=${MPASSIT_DX:-12000.0}
 ref_lat=${MPASSIT_REF_LAT:-"39.0"}
 ref_lon=${MPASSIT_REF_LON:-"-97.5"}
+mpassit_namelist=${MPASSIT_NAMELIST:-"namelist.mpassit"}
 #
 zeta_levels=${EXPDIR}/config/ZETA_LEVELS.txt
 nlevel=$(wc -l < "${zeta_levels}")
@@ -66,7 +67,7 @@ for fhr in "${fhr_all[@]}"; do
 
       # generate the naemlist on fly
       sed -e "s/@timestr@/${timestr}/" -e "s/@nx@/${nx}/" -e "s/@ny@/${ny}/" -e "s/@dx@/${dx}/" \
-          -e "s/@ref_lat@/${ref_lat}/" -e "s/@ref_lon@/${ref_lon}/" "${PARMrrfs}/namelist.mpassit" > namelist.mpassit
+          -e "s/@ref_lat@/${ref_lat}/" -e "s/@ref_lon@/${ref_lon}/" "${PARMrrfs}/${MPASSIT_NAMELIST}" > namelist.mpassit
 
       # run the executable
       source prep_step
