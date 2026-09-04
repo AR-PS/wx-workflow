@@ -187,9 +187,9 @@ elif [[ ${MESH_NAME} == "global15km" ]]; then
   export MPASSIT_REF_LON="-180.0"
 
 elif [[ ${MESH_NAME} == "global10km" ]]; then
-  export FCST_DT=40
+  export FCST_DT=30
   export FCST_SUBSTEPS=6
-  export FCST_RADT=20
+  export FCST_RADT=15
   export FCST_GFL_SUB3D=0
   export UPP_DOMAIN="global."
 
