@@ -183,6 +183,22 @@ case ${MACHINE} in
     export PARTITION=""
     export CLUSTER=""
     ;;
+  "derecho")
+    export IC_EXTRN_MDL_BASEDIR="/glade/campaign/collections/rda/data/d084001/2025"
+    export LBC_EXTRN_MDL_BASEDIR=${IC_EXTRN_MDL_BASEDIR}
+    export OBSPATH="/glade/campaign/collections/rda/data"
+    export OBSPATH_NSSLMOSAIC="/glade/work/geguo/RRFS2_RETRO_DATA/May2024/reflectivity"
+    export OBSPATH_AIRNOW="/glade/work/geguo/RRFS2_RETRO_DATA/May2024/airnow"
+    export ACCOUNT="ucuc0012"
+    export QUEUE="main"
+    export PARTITION=""
+    export NODES_IC="<nodes>10:ppn=128</nodes>"
+    export NODES_LBC="<nodes>10:ppn=128</nodes>"
+    export NODES_FCST="<nodes>10:ppn=128</nodes>"
+    export NODES_MPASSIT="<nodes>1:ppn=128</nodes>"
+    export NODES_UPP="<nodes>1:ppn=80</nodes>"
+    export NODES_JEDIVAR="<nodes>25:ppn=32</nodes>"
+    ;;
   *)
     echo "!!! unsupported platform:'${MACHINE}'!!!"
     ;;
