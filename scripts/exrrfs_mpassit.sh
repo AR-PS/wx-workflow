@@ -67,7 +67,7 @@ for fhr in "${fhr_all[@]}"; do
 
       # generate the naemlist on fly
       sed -e "s/@timestr@/${timestr}/" -e "s/@nx@/${nx}/" -e "s/@ny@/${ny}/" -e "s/@dx@/${dx}/" \
-          -e "s/@ref_lat@/${ref_lat}/" -e "s/@ref_lon@/${ref_lon}/" "${PARMrrfs}/${MPASSIT_NAMELIST}" > namelist.mpassit
+          -e "s/@ref_lat@/${ref_lat}/" -e "s/@ref_lon@/${ref_lon}/" "${PARMrrfs}/${mpassit_namelist}" > namelist.mpassit
 
       # run the executable
       source prep_step
